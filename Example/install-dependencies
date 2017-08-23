@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -eu
+
+PROJECT_ROOT="$( cd "$( dirname "${0}" )" && pwd )"
+cd "${PROJECT_ROOT}"
+
+carthage update --platform macOS --no-use-binaries
