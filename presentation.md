@@ -1028,6 +1028,7 @@ public protocol Arbitrary {
 ```
 
 ^ `Arbitrary` has a default implementation for `shrink` which returns the empty array
+
 ---
 
 # Shrinking Examples
