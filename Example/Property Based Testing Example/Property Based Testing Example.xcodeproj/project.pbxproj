@@ -16,6 +16,7 @@
 		9E2004C21F4D0B380051FA11 /* SwiftCheck.framework in Embed Framework */ = {isa = PBXBuildFile; fileRef = 9E2004BE1F4D0A970051FA11 /* SwiftCheck.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9E2004C41F4D0B930051FA11 /* Examples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2004C31F4D0B930051FA11 /* Examples.swift */; };
 		9E2004C51F4D0CA20051FA11 /* Examples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2004C31F4D0B930051FA11 /* Examples.swift */; };
+		9ECD3FDA1F5689B000AE6DD4 /* LetterFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECD3FD91F5689B000AE6DD4 /* LetterFrequency.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		9E2004B01F4D09950051FA11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E2004BE1F4D0A970051FA11 /* SwiftCheck.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftCheck.framework; path = Carthage/Build/Mac/SwiftCheck.framework; sourceTree = SOURCE_ROOT; };
 		9E2004C31F4D0B930051FA11 /* Examples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Examples.swift; sourceTree = "<group>"; };
+		9ECD3FD91F5689B000AE6DD4 /* LetterFrequency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterFrequency.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			children = (
 				9E2004BE1F4D0A970051FA11 /* SwiftCheck.framework */,
 				9E2004AE1F4D09950051FA11 /* Property_Based_Testing_ExampleTests.swift */,
+				9ECD3FD91F5689B000AE6DD4 /* LetterFrequency.swift */,
 				9E2004B01F4D09950051FA11 /* Info.plist */,
 			);
 			path = "Property Based Testing ExampleTests";
@@ -242,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ECD3FDA1F5689B000AE6DD4 /* LetterFrequency.swift in Sources */,
 				9E2004C51F4D0CA20051FA11 /* Examples.swift in Sources */,
 				9E2004AF1F4D09950051FA11 /* Property_Based_Testing_ExampleTests.swift in Sources */,
 			);
@@ -454,6 +458,7 @@
 				9E2004B51F4D09950051FA11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9E2004B61F4D09950051FA11 /* Build configuration list for PBXNativeTarget "Property Based Testing ExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -462,6 +467,7 @@
 				9E2004B81F4D09950051FA11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
