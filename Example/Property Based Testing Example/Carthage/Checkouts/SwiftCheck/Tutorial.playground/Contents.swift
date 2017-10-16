@@ -285,14 +285,14 @@ emailGen.generate
 //: There's our old friend, `Gen`!  So, an `Arbitrary` type is a type that can give us a generator
 //: to create `Arbitrary` values.  SwiftCheck defines `Arbitrary` instances for the majority of
 //: types in the Swift Standard Library in the ways you might expect e.g. The `Arbitrary` instance
-//: for `Int` calls `arc4random_uniform`.
+//: for `Int` essentially calls `arc4random_uniform`.
 //:
 //: SwiftCheck uses a strategy called a `Modifier Type`–a wrapper around one type that we can't
 //: generate with another that we can–for a few of the more "difficult" types in the Swift Standard 
 //: Library, but we also use them in more benign ways too.  For example, we can write a modifier type
 //: that only generates positive numbers:
 
-public struct ArbitraryPositive<A : Arbitrary & SignedNumber> : Arbitrary {
+public struct ArbitraryPositive<A : Arbitrary & Comparable & SignedNumeric> : Arbitrary {
 	public let getPositive : A
 
 	public init(_ pos : A) { self.getPositive = pos }
@@ -342,7 +342,7 @@ property("The reverse of the reverse of an array is that array") <- forAll { (xs
 //                                           v                    v
 property("filter behaves") <- forAll { (xs : ArrayOf<Int>, pred : ArrowOf<Int, Bool>) in
 	let f = pred.getArrow
-	return xs.getArray.filter(f).reduce(true, { $0.0 && f($0.1) })
+	return xs.getArray.filter(f).reduce(true, { $0 && f($1) })
 	// ^ This property says that if we filter an array then apply the predicate
 	//   to all its elements, then they should all respond with `true`.
 }

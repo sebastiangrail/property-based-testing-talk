@@ -8,6 +8,9 @@
 
 import SwiftCheck
 import XCTest
+#if SWIFT_PACKAGE
+import FileCheck
+#endif
 
 class ModifierSpec : XCTestCase {
 	func testModifiers() {
@@ -80,7 +83,7 @@ class ModifierSpec : XCTestCase {
 			// CHECK-NEXT: .
 			property("filter behaves") <- forAll { (xs : ArrayOf<Int>, pred : ArrowOf<Int, Bool>) in
 				let f = pred.getArrow
-				return (xs.getArray.filter(f).reduce(true, { $0.0 && f($0.1) }) as Bool)
+				return (xs.getArray.filter(f).reduce(true, { (acc, val) in acc && f(val) }) as Bool)
 			}
 		})
 	}

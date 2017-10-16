@@ -8,6 +8,9 @@
 
 import SwiftCheck
 import XCTest
+#if SWIFT_PACKAGE
+import FileCheck
+#endif
 
 #if os(Linux)
 	import Glibc

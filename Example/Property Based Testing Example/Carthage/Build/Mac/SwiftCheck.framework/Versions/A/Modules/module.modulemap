@@ -7,4 +7,5 @@ framework module SwiftCheck {
 
 module SwiftCheck.Swift {
     header "SwiftCheck-Swift.h"
+    requires objc
 }

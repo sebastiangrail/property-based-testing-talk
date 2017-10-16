@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name        = "SwiftCheck"
-    s.version     = "0.8.0"
+    s.version     = "0.8.1"
     s.summary     = "QuickCheck for Swift."
     s.homepage    = "https://github.com/typelift/SwiftCheck"
     s.license     = { :type => "MIT", :text => <<-LICENSE
@@ -36,5 +36,5 @@ Pod::Spec.new do |s|
     s.tvos.deployment_target = "9.0"
     s.framework = "XCTest"
     s.source   = { :git => "https://github.com/typelift/SwiftCheck.git", :tag => "#{s.version}", :submodules => true }
-    s.source_files = "Sources/*.swift"
+    s.source_files = "Sources/SwiftCheck/*.swift"
 end

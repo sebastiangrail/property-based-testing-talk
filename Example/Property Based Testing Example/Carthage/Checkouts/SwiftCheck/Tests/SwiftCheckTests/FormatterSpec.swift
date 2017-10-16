@@ -10,6 +10,9 @@
 
 import SwiftCheck
 import XCTest
+#if SWIFT_PACKAGE
+import FileCheck
+#endif
 
 struct Formatter<Value> {
 	let lengthLimit : UInt
@@ -28,7 +31,7 @@ struct Formatter<Value> {
 		if maxIndex >= formatted.endIndex {
 			return formatted
 		} else {
-			return formatted.substring(to: maxIndex)
+			return String(formatted[..<maxIndex])
 		}
 	}
 
@@ -52,11 +55,11 @@ struct ArbitraryFormatter<Value : Arbitrary & CoArbitrary & Hashable> : Arbitrar
 		return Gen.one(of: [
 			Gen<(UInt, ArrowOf<Value, String>, ArrowOf<String, Value>)>
 				.zip(UInt.arbitrary, ArrowOf<Value,String>.arbitrary, ArrowOf<String,Value>.arbitrary)
-				.map { Formatter<Value>(lengthLimit: $0, makeString: $1.getArrow, makeValue: $2.getArrow) }
+				.map { t in Formatter<Value>(lengthLimit: t.0, makeString: t.1.getArrow, makeValue: t.2.getArrow) }
 				.map(ArbitraryFormatter.init),
 			Gen<(UInt, IsoOf<Value, String>)>
 				.zip(UInt.arbitrary, IsoOf<Value, String>.arbitrary)
-				.map { Formatter<Value>(lengthLimit: $0, makeString: $1.getTo, makeValue: $1.getFrom) }
+				.map { t in Formatter<Value>(lengthLimit: t.0, makeString: t.1.getTo, makeValue: t.1.getFrom) }
 				.map(ArbitraryFormatter.init)
 		])
 	}

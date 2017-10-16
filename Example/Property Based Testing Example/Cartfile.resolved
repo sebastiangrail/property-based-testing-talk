@@ -1,1 +1,2 @@
-github "typelift/SwiftCheck" "2114abd276f65e42bee5ca1e941511348cec5a7c"
+github "trill-lang/FileCheck" "0.0.3"
+github "typelift/SwiftCheck" "b065472f163bc669a46a666ae65a018eb7ad6fa8"

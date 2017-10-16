@@ -8,6 +8,9 @@
 
 import SwiftCheck
 import XCTest
+#if SWIFT_PACKAGE
+import FileCheck
+#endif
 
 class RoseSpec : XCTestCase {
 	private static func intRoseTree(_ v : Int) -> Rose<Int> {
@@ -105,8 +108,10 @@ private func arbTree<A>(_ n : Int) -> Gen<RoseTreeOf<A>> {
 	}
 	return Positive<Int>.arbitrary.flatMap { m in
 		let n2 = n / (m.getPositive + 1)
-		return Gen<(A, [A])>.zip(A.arbitrary, arbTree(n2).proliferate(withSize: m.getPositive)).flatMap { (a, f) in
-			return Gen.pure(RoseTreeOf(.mkRose({ a }, { f.map { $0.getRose } })))
+		let gg : Gen<(A, [RoseTreeOf<A>])> = Gen<(A, [RoseTreeOf<A>])>.zip(A.arbitrary, arbTree(n2).proliferate(withSize: m.getPositive))
+		return gg.map { (t) -> RoseTreeOf<A> in
+			let (a, f) = t
+			return RoseTreeOf(.mkRose({ a }, { f.map { $0.getRose } }))
 		}
 	}
 }
