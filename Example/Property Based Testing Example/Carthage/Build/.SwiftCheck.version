@@ -1,8 +1,8 @@
 {
-  "commitish" : "b065472f163bc669a46a666ae65a018eb7ad6fa8",
+  "commitish" : "794a986232e70bebe008e776a7e181d766aee254",
   "Mac" : [
     {
-      "hash" : "0567d95096b802a4d205742e78f76fc69d1c3f0a2bd03a4d246d8ba1eab64822",
+      "hash" : "fc04d2feada1eedd462c8310ab23313babf5c5bf8e8b644dd817b0d07ce1571e",
       "name" : "SwiftCheck"
     }
   ]
