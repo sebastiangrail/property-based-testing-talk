@@ -194,18 +194,7 @@ class Property_Based_Testing_ExampleTests: XCTestCase {
         
     }
     
-    
-    
-    func testUser() {
-        property("") <- forAll { (x: User) in
-            print(x)
-            return true
-        }
-    }
-    
-    
     func testArray() {
-//        let arguments = CheckerArguments(replay: (StdGen(1682871589, 8654), 3))
         let arguments = CheckerArguments()
         property("reversing twice is identity", arguments: arguments) <- forAll { (xs: [Int]) in
             return reverse(reverse(xs)) == xs
